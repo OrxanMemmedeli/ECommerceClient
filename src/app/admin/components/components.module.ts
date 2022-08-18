@@ -15,9 +15,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
     OrdersModule,
     CustomersModule,
     DashboardModule
-  ],
-  exports: [
-    ComponentsModule
   ]
 })
 export class ComponentsModule { }
