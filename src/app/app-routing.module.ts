@@ -10,10 +10,9 @@ const routes: Routes = [
   {path: "admin", component: LayoutComponent, children: [
     {path: "", component: DashboardComponent},
     {path: "customers", loadChildren: () => import("./admin/components/customers/customers.module").then(module => module.CustomersModule)},
-    {path: "products", loadChildren: () => import("./admin/components/poroducts/poroducts.module").then(module => module.PoroductsModule)},
+    {path: "products", loadChildren: () => import("./admin/components/products/products.module").then(module => module.ProductsModule)},
     {path: "orders", loadChildren: () => import("./admin/components/orders/orders.module").then(module => module.OrdersModule)}
   ]},
-
 
   //esas layouth
   {path:"", component: HomeComponent},
