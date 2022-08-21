@@ -1,7 +1,17 @@
-<p>products works!</p>
+<!-- <p>products works!</p>
 
 
 <button (click)="create()">yeni data</button>
 <button (click)="update()">datani yenile</button>
 <button (click)="deleteData()">datani sil</button>
-<button (click)="get()">datani getir</button>
+<button (click)="get()">datani getir</button> -->
+
+<mat-drawer-container class="product-container">
+    <mat-drawer mode="side" class="product-left-side" opened>
+        <app-create></app-create>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-list></app-list>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  

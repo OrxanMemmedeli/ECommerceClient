@@ -16,6 +16,10 @@ export class BaseComponent {
   hideSpinner(spinnerName: SpinnerName){
     this.spinner.hide(spinnerName);
   }
+
+  showSpinnerWithoutHide(spinnerName: SpinnerName){
+    this.spinner.show(spinnerName);
+  }
 }
 
 export enum SpinnerName{
