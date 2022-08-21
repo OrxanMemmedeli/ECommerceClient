@@ -20,25 +20,25 @@ export class HttpClientService {
   }
 
   get<T>(requestParameters: Partial<RequestParameters>, id?: string) : Observable<T> {
-    let url: string = `${this.CreateUrl(requestParameters)}${id ? `/${id}`:""}`;
+    let url: string = `${this.CreateUrl(requestParameters)}${id ? `/${id}`:""}${requestParameters.queryString ? `?${requestParameters.queryString}` : ""}`;
 
     return this.httpClient.get<T>(url, {headers: requestParameters.headers});
   }
 
   post<T>(requestParameters: Partial<RequestParameters>, body: Partial<T>) : Observable<T> {
-    let url: string = `${this.CreateUrl(requestParameters)}`;
+    let url: string = `${this.CreateUrl(requestParameters)}${requestParameters.queryString ? `?${requestParameters.queryString}` : ""}`;
 
     return this.httpClient.post<T>(url,body, {headers : requestParameters.headers});
   }
 
   put<T>(requestParameters: Partial<RequestParameters>, body: Partial<T>) : Observable<T>{
-    let url: string = `${this.CreateUrl(requestParameters)}`;
+    let url: string = `${this.CreateUrl(requestParameters)}${requestParameters.queryString ? `?${requestParameters.queryString}` : ""}`;
 
     return this.httpClient.put<T>(url, body, {headers: requestParameters.headers});
   }
 
   delete<T>(requestParameters: Partial<RequestParameters>, id?: string) : Observable<T> {
-    let url: string = `${this.CreateUrl(requestParameters)}/${id}`;
+    let url: string = `${this.CreateUrl(requestParameters)}/${id}${requestParameters.queryString ? `?${requestParameters.queryString}` : ""}`;
     
     return this.httpClient.delete<T>(url, {headers: requestParameters.headers});
   }
@@ -49,6 +49,7 @@ export class HttpClientService {
 export class RequestParameters {
   controller?: string;
   action?: string;
+  queryString?:string;
 
   headers?: HttpHeaders; //header gonderme telebi yaranan zaman istifade ucun
   baseUrl?: string; // baseUrl den basqa url uzre isden gondere bilme ucun

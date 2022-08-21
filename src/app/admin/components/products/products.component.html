@@ -8,7 +8,7 @@
 
 <mat-drawer-container class="product-container">
     <mat-drawer mode="side" class="product-left-side" opened>
-        <app-create></app-create>
+        <app-create (createdProduct)="createdProduct($event)"></app-create>
     </mat-drawer>
     <mat-drawer-content>
         <app-list></app-list>
