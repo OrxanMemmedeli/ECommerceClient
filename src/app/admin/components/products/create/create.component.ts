@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, SpinnerName } from 'src/app/base/base.component';
 import { CreateProduct } from 'src/app/contracts/create-product';
@@ -25,6 +25,8 @@ export class CreateComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  @Output() createdProduct: EventEmitter<CreateProduct> = new EventEmitter();
+
   create(
     name: HTMLInputElement,
     stock: HTMLInputElement,
@@ -43,6 +45,17 @@ export class CreateComponent extends BaseComponent implements OnInit {
           messageType: MessageType.success,
           position: Position.TopCenter,
         });
-    });
+
+        this.createdProduct.emit(product);
+
+    }, errorMessage => {
+      this.hideSpinner(SpinnerName.LineSpinClockwiseFade),
+      this.aletify.message(errorMessage, {
+        messageType: MessageType.error,
+        position: Position.TopCenter
+      });
+    }
+    
+    );
   }
 }
