@@ -13,7 +13,7 @@ import { ProductService, ResponseDataForProduct } from 'src/app/services/common/
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent extends BaseComponent implements OnInit {
-  displayedColumns: string[] = ['name','stock','price','createdData','modifyData',];
+  displayedColumns: string[] = ['name','stock','price','createdData','modifyData','tools'];
   dataSource: MatTableDataSource<ListProduct> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
