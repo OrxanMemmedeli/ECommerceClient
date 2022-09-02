@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Diqqət!</h1>
+<div mat-dialog-content>
+  <p>Məlumat silinsinmi?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">İmtina et</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Silinsin</button>
+</div>
