@@ -7,6 +7,7 @@ import {
   MessageType,
   Position,
 } from 'src/app/services/admin/alertify.service';
+import { FileUploadOptions } from 'src/app/services/common/file-upload/file-upload.component';
 import { ProductService } from 'src/app/services/common/models/product.service';
 
 @Component({
@@ -15,6 +16,15 @@ import { ProductService } from 'src/app/services/common/models/product.service';
   styleUrls: ['./create.component.scss'],
 })
 export class CreateComponent extends BaseComponent implements OnInit {
+
+  @Output() fileUploadOptions: Partial<FileUploadOptions> = {
+    action: "upload",
+    controller: "products",
+    explanation: "Sekilleri secin",
+    isAdminPage: true,
+    accept: ".png, .jpg, .jpeg "
+  };
+
   constructor(
     spinner: NgxSpinnerService,
     private productService: ProductService,
